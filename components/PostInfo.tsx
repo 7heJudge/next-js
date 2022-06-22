@@ -1,0 +1,24 @@
+import Heading from "./Heading";
+import {Post} from "../utils/types";
+import {NextPage} from "next";
+
+type Props = {
+    post: Post;
+}
+
+const PostInfo: NextPage<Props> = ({ post }) => {
+    const { title, body } = post || {};
+
+    if (!post) {
+        return <Heading tag="h3" text="Empty post" />
+    }
+
+    return (
+        <>
+            <Heading tag="h3" text={title} />
+            <p>{body}</p>
+        </>
+    );
+}
+
+export default PostInfo;
